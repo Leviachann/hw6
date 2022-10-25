@@ -6,10 +6,15 @@ template <class T> class Vector {
   int size = 0;
 public:
   Vector(const Vector &other) { other.data; }
-  Vector &operator=(const Vector &other) {
-    other.data;
-    return *this;
-  }
+	Vector& operator=(const Vector& value) {
+		delete[] data;
+		size = value.size;
+		data = new T[size];
+		for (int i = 0; i < size; i++) {
+			data[i] = value.data[i];
+		}
+		return *this;
+	
   void PushBack(T value) {
     T *temp = new T[size + 1];
     for (int i = 0; i < size; i++) {
